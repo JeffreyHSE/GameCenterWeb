@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Schere Stein Papier</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div style="display: flex; flex-direction: column; gap: 3rem">
+
+  <div>
+    <h1 style="font-weight: bold; text-align: center">Welcome to the rock paper scissors game</h1>
+    <h4 style="font-weight: lighter; text-align: center">Select one button</h4>
+  </div>
+
+    <div style="display: flex; justify-content: center; align-items: center; gap: .5rem" id="choices_message">
+        <p id="user_choice" style="text-align: center; font-weight: bold; font-size: 1.2rem">User (/)</p>
+        <p style="font-weight: bold">vs</p>
+        <p id="computer_choice" style="text-align: center; font-weight: bold; font-size: 1.2rem">Computer (/)</p>
+    </div>
+
+    <div id="winner_message">
+        <p style="text-align: center; font-weight: bold; font-size: 1.2rem">/</p>
+    </div>
+
+    <div id="score_message">
+        <p style="text-align: center; font-weight: bold; font-size: 1.3rem">Score: User (0) | Computer (0)</p>
+    </div>
+
+  <div style="display: flex; gap: 2rem; justify-content: center">
+      <button style="color: #FFFFFF" type="button" class="game_btn_design" id="scissor_btn">✂️</button>
+      <button style="color: #FFFFFF" type="button" class="game_btn_design" id="stone_btn">🪨</button>
+      <button style="color: #FFFFFF" type="button" class="game_btn_design" id="paper_btn">📝</button>
+  </div>
+
+  </div>
+
+<script type="module" src="game/events/click.js"></script>
+</body>
+</html>
