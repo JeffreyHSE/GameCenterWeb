@@ -36,7 +36,50 @@ export class GameLogic {
         get_computer_choice.replaceWith(update_data);
 
         console.log(update_computer_choice_frontend);
+        this.winLogic();
     }
 
+    determineWinner(message) {
+        let get_winner_message = document.getElementById("decide_winner");
+        let update_winner_message_frontend = get_winner_message.innerHTML.replace(get_winner_message.innerHTML, message);
+        let update_data = document.createElement("p");
+        update_data.setAttribute("id", "decide_winner");
+        update_data.innerHTML = update_winner_message_frontend;
 
+        get_winner_message.replaceWith(update_data);
+    }
+
+    winLogic() {
+    let winner_msg;
+    if (userInput === this.computer_choice_array[0]) {
+    winner_msg = "Niemand hat gewonnen.. \uD83E\uDD1D";
+    this.determineWinner(winner_msg);
+    return "Niemand";
+    }
+    if (userInput === "Schere ✂️" && !this.computer_choice_array[0].includes("🪨")) {
+        winner_msg = "User: " + "(" + userInput + ")" + " hat gewonnen.";
+        this.determineWinner(winner_msg);
+        // score.addScoreToUser();
+        return "User";
+    }
+
+    if (userInput === "🪨" && !this.computer_choice_array[0].includes("📝")) {
+        winner_msg = "User: " + "(" + userInput + ")" + " hat gewonnen.";
+        this.determineWinner(winner_msg);
+        // score.addScoreToUser();
+        return "User";
+    }
+
+    if (userInput === "📝" && !this.computer_choice_array[0].includes("✂️")) {
+        winner_msg = "User: " + "(" + userInput + ")" + " hat gewonnen.";
+        this.determineWinner(winner_msg);
+        // score.addScoreToUser();
+
+    } else {
+        winner_msg = "Computer: " + "(" + this.computer_choice_array[0] + ")" + " hat gewonnen.";
+        this.determineWinner(winner_msg);
+        //score.addScoreToComputer();
+    }
+    return "Computer";
+    }
 }
