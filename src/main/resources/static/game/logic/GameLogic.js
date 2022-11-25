@@ -56,7 +56,7 @@ export class GameLogic {
     this.determineWinner(winner_msg);
     return "Niemand";
     }
-    if (userInput === "Schere ✂️" && !this.computer_choice_array[0].includes("🪨")) {
+    if (userInput === "✂️" && !this.computer_choice_array[0].includes("🪨")) {
         winner_msg = "User: " + "(" + userInput + ")" + " hat gewonnen.";
         this.determineWinner(winner_msg);
         // score.addScoreToUser();
