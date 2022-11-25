@@ -11,6 +11,18 @@ body {
 
 }
 
+#user_choice {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+#computer_choice {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
 .game_btn_design {
     padding: 15px 30px;
     border-radius: 1rem;
