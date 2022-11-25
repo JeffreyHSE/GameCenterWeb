@@ -1,8 +1,11 @@
 import {userInput} from "../events/click.js";
+import {Score} from "./Score.js";
 
 export class GameLogic {
 
     computer_choice_array = ["✂️", "🪨", "📝"];
+
+    score = new Score();
 
     constructor() {
 
@@ -59,26 +62,26 @@ export class GameLogic {
     if (userInput === "✂️" && !this.computer_choice_array[0].includes("🪨")) {
         winner_msg = "User: " + "(" + userInput + ")" + " hat gewonnen.";
         this.determineWinner(winner_msg);
-        // score.addScoreToUser();
+        this.score.addScoreToUser();
         return "User";
     }
 
     if (userInput === "🪨" && !this.computer_choice_array[0].includes("📝")) {
         winner_msg = "User: " + "(" + userInput + ")" + " hat gewonnen.";
         this.determineWinner(winner_msg);
-        // score.addScoreToUser();
+        this.score.addScoreToUser();
         return "User";
     }
 
     if (userInput === "📝" && !this.computer_choice_array[0].includes("✂️")) {
         winner_msg = "User: " + "(" + userInput + ")" + " hat gewonnen.";
         this.determineWinner(winner_msg);
-        // score.addScoreToUser();
+        this.score.addScoreToUser();
 
     } else {
         winner_msg = "Computer: " + "(" + this.computer_choice_array[0] + ")" + " hat gewonnen.";
         this.determineWinner(winner_msg);
-        //score.addScoreToComputer();
+        this.score.addScoreToComputer();
     }
     return "Computer";
     }
