@@ -6,22 +6,33 @@ let get_paper = document.getElementById("paper_btn");
 
 const logic = new GameLogic();
 
-let userInput = null;
+let userInput;
+
+async function disableAllButtons() {
+    get_scissors.setAttribute("disabled", "enabled")
+    get_stone.setAttribute("disabled", "enabled");
+    get_paper.setAttribute("disabled", "enabled");
+}
 
 
-get_scissors.addEventListener("click", e => {
+get_scissors.addEventListener("click", async e => {
     userInput = get_scissors.innerHTML;
     logic.userChoice();
-    console.log(userInput);
+    logic.computerChoice();
+    await disableAllButtons();
 });
 
-get_stone.addEventListener("click", e => {
+get_stone.addEventListener("click", async e => {
     userInput = get_stone.innerHTML;
-    console.log(userInput);
+    logic.userChoice();
+    logic.computerChoice();
+    await disableAllButtons();
 });
 
-get_paper.addEventListener("click", e => {
+get_paper.addEventListener("click", async e => {
     userInput = get_paper.innerHTML;
-    console.log(userInput);
+    logic.userChoice();
+    logic.computerChoice();
+    await disableAllButtons();
 });
 export {userInput};
