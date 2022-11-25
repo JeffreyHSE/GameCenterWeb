@@ -12,7 +12,7 @@ export class Score {
         let update_userScore_frontend = get_userScore.innerHTML.replace(get_userScore.innerHTML[6], this.userScore.toString());
         let update_data = document.createElement("p");
         update_data.setAttribute("id", "user_score");
-        update_data.innerHTML = update_userScore_frontend;
+        update_data.innerHTML = update_userScore_frontend.replace(update_userScore_frontend, "User ("+this.userScore+")");
 
         get_userScore.replaceWith(update_data);
     }
@@ -23,7 +23,7 @@ export class Score {
         let update_computerScore_frontend = get_computerScore.innerHTML.replace(get_computerScore.innerHTML[10], this.computerScore.toString());
         let update_data = document.createElement("p");
         update_data.setAttribute("id", "computer_score");
-        update_data.innerHTML = update_computerScore_frontend;
+        update_data.innerHTML = update_computerScore_frontend.replace(update_computerScore_frontend, "Computer ("+this.computerScore+")");
 
         get_computerScore.replaceWith(update_data);
     }
