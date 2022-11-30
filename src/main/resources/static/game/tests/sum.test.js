@@ -2,9 +2,9 @@
  * @jest-environment jsdom
  */
 import {GameLogic} from "../logic/GameLogic.js";
-let checkLogic = new GameLogic();
+import {Score} from "../logic/Score";
+let checkLogic = new GameLogic(document.createElement("p"), document.createElement("p"), document.createElement("p"), new Score(document.createElement("p"), document.createElement("p")));
 
-
-test('test', () => {
-    expect(checkLogic.winLogic("✂", "📝")).toBe("Computer");
+test('Test if the win logic is working correctly!', () => {
+    expect(checkLogic.winLogic("🪨", "✂")).toBe("User");
 });
