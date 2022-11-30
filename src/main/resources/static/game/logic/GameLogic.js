@@ -30,35 +30,38 @@ export class GameLogic {
     computerChoice() {
         this.randomizeArray();
         this.computerChoiceElement.innerHTML = `Computer: (${this.computer_choice_array[0]})`;
-        this.winLogic();
+        this.winLogic(this.userInput, this.computerInput);
     }
 
     determineWinner(message) {
-        this.determineWinnerElement.innerHTML = `${message}`
+        this.determineWinnerElement.innerHTML = `${message}`;
     }
 
-    winLogic() {
+    winLogic(userInput, computerInput) {
         let winner_msg;
-        if (this.userInput === this.computer_choice_array[0]) {
+        if (computerInput === undefined) {
+            computerInput = this.computer_choice_array[0];
+        }
+        if (userInput === computerInput) {
             winner_msg = "Niemand hat gewonnen.. \uD83E\uDD1D";
             this.determineWinner(winner_msg);
             return "Niemand";
         }
-        if (this.userInput === "✂️" && !this.computer_choice_array[0].includes("🪨")) {
+        if (userInput === "✂️" && computerInput !=="🪨") {
             winner_msg = "User: " + "(" + this.userInput + ")" + " hat gewonnen.";
             this.determineWinner(winner_msg);
             this.score.addScoreToUser();
             return "User";
         }
 
-        if (this.userInput === "🪨" && !this.computer_choice_array[0].includes("📝")) {
+        if (userInput === "🪨" && computerInput !=="📝") {
             winner_msg = "User: " + "(" + this.userInput + ")" + " hat gewonnen.";
             this.determineWinner(winner_msg);
             this.score.addScoreToUser();
             return "User";
         }
 
-        if (this.userInput === "📝" && !this.computer_choice_array[0].includes("✂️")) {
+        if (userInput === "📝" && computerInput !== "✂️") {
             winner_msg = "User: " + "(" + this.userInput + ")" + " hat gewonnen.";
             this.determineWinner(winner_msg);
             this.score.addScoreToUser();
