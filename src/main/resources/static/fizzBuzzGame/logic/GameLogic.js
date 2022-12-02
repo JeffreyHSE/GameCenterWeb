@@ -10,8 +10,8 @@ export class GameLogic {
     this.resultMessage = resultMessage;
     }
 
-    userChoice() {
-        this.userInputElement.innerHTML = `Number: (${(this.userInput)})`;
+    userChoice(userInput) {
+        this.userInputElement.innerHTML = `Number: (<strong>${userInput})</strong>`;
     }
 
     validate(userInput) {
@@ -24,18 +24,33 @@ export class GameLogic {
         this.resultMessage.innerHTML = `${message}`;
     }
 
+    noDivision(userInput) {
+        if (userInput % 3 !== 0 && userInput % 5 !== 0) {
+            this.calculationOutput("Die Zahl <strong>" + userInput + "</strong> konnte nicht dividiert werden durch 3 oder 5.");
+            return true;
+        }
+    }
+
     calculate(userInput) {
+        this.noDivision(userInput);
+        let output;
         if (userInput % 3 === 0 && userInput % 5 === 0) {
+            output = "<strong>FizzBuzz</strong>"
+            this.calculationOutput(output);
             return "FizzBuzz";
         }
 
         if (userInput % 3 === 0) {
-            return "Fizz";
+            output = "<strong>Fizz</strong>"
+            this.calculationOutput(output);
+            return output;
         }
 
         if (userInput % 5 === 0) {
+            output = "<strong>Buzz<strong>";
+            this.calculationOutput(output);
             return "Buzz";
         }
-        return this.calculationOutput(userInput);
+        return userInput;
     }
 }
