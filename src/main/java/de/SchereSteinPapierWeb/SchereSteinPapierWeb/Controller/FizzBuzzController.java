@@ -6,12 +6,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class SchereSteinPapierController {
+public class FizzBuzzController {
 
-    @GetMapping("/rockpaperscissors")
-    public String rockpaprscissors(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
+    @GetMapping("/fizzbuzz")
+    public String fizzbuzz(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
         model.addAttribute("name", name);
-        return "rockpaperscissors";
+        return "fizzbuzz";
     }
 
 }
