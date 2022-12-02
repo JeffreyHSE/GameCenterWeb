@@ -8,7 +8,6 @@ let logic = new GameLogic(get_form_input.value, document.getElementById("chosen_
 get_submit_btn.addEventListener("click", e => {
  e.preventDefault();
  logic.userChoice(get_form_input.value);
- logic.validate(get_form_input.value);
  logic.calculate(get_form_input.value);
 });
 

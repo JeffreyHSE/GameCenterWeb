@@ -16,7 +16,8 @@ export class GameLogic {
 
     validate(userInput) {
     if (userInput > 100 || userInput < 0) {
-        this.calculationOutput("Die Nummer <strong>" + userInput + "</strong> liegt nicht zwischen" + " 1-100!");
+        this.calculationOutput("Die Nummer <strong>" + userInput + " </strong>liegt nicht zwischen 1-100!");
+        throw new Error("Die Nummer " + userInput + " liegt nicht zwischen 1-100!");
 }
 
 }
@@ -27,11 +28,11 @@ export class GameLogic {
     noDivision(userInput) {
         if (userInput % 3 !== 0 && userInput % 5 !== 0) {
             this.calculationOutput("Die Zahl <strong>" + userInput + "</strong> konnte nicht dividiert werden durch 3 oder 5.");
-            return true;
         }
     }
 
     calculate(userInput) {
+        this.validate(userInput);
         this.noDivision(userInput);
         let output;
         if (userInput % 3 === 0 && userInput % 5 === 0) {
