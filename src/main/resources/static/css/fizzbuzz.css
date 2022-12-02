@@ -28,3 +28,19 @@ body {
     font-weight: bold;
     color: #FFFFFF;
 }
+
+@media (min-width: 600px) {
+
+    #welcome_message > h1 {
+        font-size: 2.4rem;
+    }
+    #welcome_message > h4 {
+        font-size: 1.4rem;
+    }
+    #chosen_number {
+        font-size: 1.7rem!important;
+    }
+    #decide_result {
+        font-size: 1.7rem!important;
+    }
+}
