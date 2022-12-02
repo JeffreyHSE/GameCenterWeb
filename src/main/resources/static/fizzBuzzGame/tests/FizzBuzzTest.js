@@ -1,10 +1,19 @@
 /**
  * @jest-environment jsdom
  */
-import {GameLogic} from "../logic/GameLogic.js";
-import {Score} from "../logic/Score.js";
-let checkLogic = new GameLogic(document.createElement("p"), document.createElement("p"), document.createElement("p"), new Score(document.createElement("p"), document.createElement("p")));
+import {GameLogic} from "../logic/GameLogic";
+let checkLogic = new GameLogic(document.createElement("p"), document.createElement("p"), document.createElement("p"));
 
-test('Test if the win logic is working correctly!', () => {
-    expect(checkLogic.winLogic("🪨", "✂")).toBe("User");
-});
+    test('Test if return value can be divided by only 3.', () => {
+        expect(checkLogic.calculate("3")).toBe("Fizz");
+    });
+
+
+    test('Test if return value can be divided by only 5.', () => {
+        expect(checkLogic.calculate("5")).toBe("Buzz");
+    });
+
+
+    test('Test if return value can be divided by 3 and 5.', () => {
+        expect(checkLogic.calculate("30")).toBe("FizzBuzz");
+    });
