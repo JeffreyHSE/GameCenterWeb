@@ -44,7 +44,7 @@ export class GameLogic {
         if (userInput % 3 === 0) {
             output = "<strong>Fizz</strong>"
             this.calculationOutput(output);
-            return output;
+            return "Fizz";
         }
 
         if (userInput % 5 === 0) {
